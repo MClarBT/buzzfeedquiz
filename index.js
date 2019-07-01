@@ -70,6 +70,7 @@ function isUserReady() {
 
 /* if i can think of five questions for this one...*/
 
+//problem is if I put wrong input, the computer knows it, but kind of continues the buzzfeedquiz!
 
 function questionOne() {
  // write some code that displays a question and some answer choices to a user
@@ -95,7 +96,8 @@ else if(toppingResponse === "many")
 }
 
 else {
-  console.log("\nThat's not a choice, please choose either many or minimal: ");
+  console.log("\nThat's not a choice, here's the question again: ");
+  questionOne();
 }
 
 
@@ -103,7 +105,7 @@ else {
 
 function questionTwo() {
 //do you prefer for your pizza crust to be thin or thick?
- 
+
   let crustThicknessResponse = readlineSync.question("\nHere's question 2: Do you prefer a thin pizza crust or a thick pizza crust? Please type either thin or thick: ");
 
   if(crustThicknessResponse === "thin") {
@@ -115,7 +117,8 @@ function questionTwo() {
   }
 
   else {
-    console.log("\n That's not a choice, please choose either thin or thick: ");
+    console.log("\n That's not a choice, here's the question again: ");
+    questionTwo();
   }
 
 }
@@ -133,7 +136,8 @@ function questionThree() {
   }
 
   else {
-    console.log("\n That's not a choice, please choose either deep or flat: ");
+    console.log("\n That's not a choice, here's the question again: ");
+    questionThree();
   }
 
 
@@ -155,7 +159,8 @@ function questionFour() {
   }
 
   else {
-    console.log("\n That's not a choice, please choose either squares and strips or diagonally: ");
+    console.log("\n That's not a choice, here's the question again: ");
+    questionFour();
   }
 
 }
@@ -176,7 +181,8 @@ function questionFive() {
   }
 
   else {
-    console.log("\nThat's not a choice, please choose either golden or not as golden: ");
+    console.log("\nThat's not a choice, here's the question again: ");
+    questionFive();
 
   }
 }
@@ -196,7 +202,8 @@ function questionSix() {
   }
 
   else {
-    console.log("\nThat's not a choice, please choose either folded or not folded: ");
+    console.log("\nThat's not a choice, here's the question again: ");
+    questionSix();
   }
 
 }
@@ -207,20 +214,44 @@ function questionSeven() {
 
   if (tomatoSauceResponse === "under")
   {
-	console.log("\nYour answer was \"under\". You'd be more compatible with somebody who seemingly isn't too emotional, but does have his or her sweetness within. Somebody who's comfortable with showing his or her feelings only after they get really attracted to you. \n");
+
+	  console.log("\nYour answer was \"under\". You'd be more compatible with somebody who seemingly isn't too emotional, but does have his or her sweetness within. Somebody who's comfortable with showing his or her feelings only after they get really attracted to you. \n");
   }
 
   else if(tomatoSauceResponse === "over")
   {
-	console.log("\nYour answer was \"over\". You'd be more compatible with somebody who is especially sweet towards you and is very demonstrative of it. Your soul mate would be a bit more open about his or her feelings. \n");
+     questionEight();
   }
 
   else
   {
-	console.log("\nThat's not a choice, please choose either under or not over: ");
+	   console.log("\nThat's not a choice, here's the question again: ");
+     questionSeven();
   }
 
 }
+
+
+function questionEight() {
+
+  let tomatoSauceQuestion2Response = readlineSync.question("\nYour answer was \"over\". Since you answered that, here's the bonus question, question 8: The tomato pie is a pizza that has the tomato sauce over the toppings. Would you prefer eating that pizza? Type yes or no: ");
+
+  if(tomatoSauceQuestion2Response === "yes")
+  {
+    console.log("\nYour answer was \"yes\". You'd be more compatible with somebody who is especially sweet towards you and is very demonstrative of it. Your soul mate would be a bit more open about his or her feelings. \n");
+  }
+
+  else if(tomatoSauceQuestion2Response === "no")
+  {
+    console.log("\nYour answer was \"no\". In that case, you'd get along better with somebody who is again really sweet towards you, but isn't mushy all the time.\n");
+  }
+
+  else {
+    console.log("\nThat's not a choice, here's the question again:\n ");
+    questionEight();
+  }
+}
+
 
 isUserReady();
 questionOne();
@@ -229,4 +260,4 @@ questionThree();
 questionFour();
 questionFive();
 questionSix();
-questionSeven();
+questionSeven(); //here, questionEight is called
